@@ -8,28 +8,22 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: MyHomePage());
+    return  MaterialApp(home: MyHomePage());
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  
   MyHomePage({super.key});
-  
+
   final _transaction = [
     Transaction(
         id: 't1',
         title: 'Novo Tênis Corrida',
         value: 310.76,
         date: DateTime.now()),
-        Transaction(
-        id: 't2',
-        title: 'Conta luz',
-        value: 310.76,
-        date: DateTime.now())
+    Transaction(
+        id: 't2', title: 'Conta luz', value: 310.76, date: DateTime.now()),
   ];
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +38,14 @@ class MyHomePage extends StatelessWidget {
             child: const Card(
                 color: Colors.blue, elevation: 5, child: Text("Gráfico")),
           ),
-          Card(
-            child: Text('Lista de Transações'),
+          Column(
+            children: <Widget>[
+              ..._transaction.map((tr) {
+                return Card(
+                  child: Text(tr.title),
+                );
+              })
+            ],
           )
         ],
       ),
