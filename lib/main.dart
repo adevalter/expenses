@@ -8,7 +8,7 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(home: MyHomePage());
+    return MaterialApp(home: MyHomePage());
   }
 }
 
@@ -36,8 +36,10 @@ class MyHomePage extends StatelessWidget {
           Container(
             width: double.infinity,
             child: const Card(
-                color: Colors.blue, elevation: 5, 
-                child: Text("Gráfico"),),
+              color: Colors.blue,
+              elevation: 5,
+              child: Text("Gráfico"),
+            ),
           ),
           Column(
             children: <Widget>[
@@ -47,20 +49,28 @@ class MyHomePage extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         margin: const EdgeInsets.symmetric(
-                          horizontal: 15,
-                          vertical: 10
-                        ),
-                        decoration: BoxDecoration(border: Border.all(
-                          color: Colors.black,
+                            horizontal: 15, vertical: 10),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                          color: Colors.purple,
                           width: 2,
                         )),
                         padding: const EdgeInsets.all(10),
-                        child: Text(tr.value.toString()),
+                        child: Text(
+                          tr.value.toString(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.purple,
+                          ),
+                        ),
                       ),
-                      Column( children: <Widget>[
-                        Text(tr.title),
-                        Text(tr.date.toString()),
-                      ],)
+                      Column(
+                        children: <Widget>[
+                          Text(tr.title),
+                          Text(tr.date.toString()),
+                        ],
+                      )
                     ],
                   ),
                 );
